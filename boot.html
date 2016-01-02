@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Boot process</title>
+</head>
+<body>
+  <h1>Boot process</h1>
+
+  <h2>Contents:</h2>
+  <ul>
+    <li><a href="#article-01">Explaining the boot process</a></li>
+    <li><a href="#article-02">Identifing several types of boot loaders</a></li>
+    <li><a href="#article-03">Describing what the BIOS does</a></li>
+    <li><a href="#article-04">Identifing the relevant configuration files</a></li>
+    <li><a href="#article-05">Describing how the system shuts down and reboots</a></li>
+  </ul>
+
+  <h2 id="article-01">Explaining the boot process</h2>
+  <p>Basic boot sequence:</p>
+  <ol>
+    <li><strong>BIOS/UEFI</strong> locates and executes boot program, or boot loader.</li>
+    <li>boot loader loads the kernel</li>
+    <li>kernel starts the <strong>init</strong> process <strong>(pid=1)</strong></li>
+    <li><strong>init</strong> manages system initialization, using <strong>SysVinit</strong> startup scripts, or using <strong>Upstart</strong> or <strong>systemd</strong>.</li>
+  </ol>
+
+  <p>When the computer is powered on it can only perfom operations that it is ordered to do by the <strong>BIOS</strong>.</p>
+
+  <p>The <strong>BIOS</strong> runs the <strong>POST</strong> (Power On Self Test). This checks memory and hardware then searches a specific location or device for a boot program.</p>
+
+  <p>The boot program is usually found in the <strong>MBR</strong> (Master Boot Record). Control is then passed to this boot program (usually <strong>GRUB</strong>).</p>
+
+  <p>The boot program loads the kernel into the memory and executes it. On <strong>x86</strong> platforms (and others) it decompress itself. Then performs hardware checks, gains access to peripheral hardware, and runs the <strong>init</strong> process.</p>
+
+  <p>The <strong>init</strong> process continues the system startup, running <strong>init</strong> scripts if <strong>SysVinit</strong> is being used, or managing <strong>Upstart</strong> or <strong>systemd</strong>.</p>
+
+  <p>The <strong>BIOS</strong> is uusally placed in a <strong>ROM</strong> chip <strong>(ROM BIOS)</strong> that comes with the computer. This ensures that the <strong>BIOS</strong> will always be available and will not be damaged by disk failures, and makes it possible for a computer to boot itself.</p>
+
+  <p>During the boot process the <strong>BIOS</strong> loads the boot loader from the <strong>MBR</strong>.</p>
+
+  <h2 id="article-02">Identifing several types of boot loaders</h2>
+
+  <h2 id="article-03">Describing what the <strong>BIOS</strong> does</h2>
+
+  <h2 id="article-04">Identifing the relevant configuration files</h2>
+
+  <h2 id="article-05">Describing how the system shuts down and reboots</h2>
+
+</body>
+</html>
